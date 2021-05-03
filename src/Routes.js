@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import App from './App';
 import Profile from './Profile';
 import Users from './Users';
+import About from './About';
 
 const Routes = () => {
   return (
@@ -11,6 +12,7 @@ const Routes = () => {
         <Route path="/" component={App} exact />
         <Route path="/profile" component={Profile} />
         <Route path="/users" component={Users} />
+        <Route path="/about" component={About} />
       </Switch>
     </BrowserRouter>
   );
