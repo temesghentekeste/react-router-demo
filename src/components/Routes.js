@@ -4,10 +4,12 @@ import App from './App';
 import Profile from './Profile';
 import Users from './Users';
 import About from './About';
+import Navbar from './Navbar';
 
 const Routes = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Switch>
         <Route path="/" component={App} exact />
         <Route path="/profile" component={Profile} />

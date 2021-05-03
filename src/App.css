@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+nav {
+  margin-bottom: 1rem;
+}
+nav ul {
+  display: flex;
+  justify-content: start;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav li a {
+  display: block;
+  padding: 0.6rem 0.6rem;
+  text-decoration: none;
+  transition: background 0.5s ease;
+}
+
+nav li a:hover {
+  background: #282c34;
+  color: white;
+}
