@@ -11,13 +11,13 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <main>
+      <Switch>
         <Route path="/users" component={UsersMenu} />
         <Route path="/" component={App} exact />
         <Route path="/profile" component={Profile} />
         <Route path="/users" component={Users} />
         <Route path="/about" component={About} />
-      </main>
+      </Switch>
     </BrowserRouter>
   );
 };
