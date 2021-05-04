@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import App from './App';
 import Profile from './Profile';
 import Users from './Users';
@@ -17,6 +17,7 @@ const Routes = () => {
         <Route path="/profile" component={Profile} />
         <Route path="/users" component={Users} />
         <Route path="/about" component={About} />
+        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   );
