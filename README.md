@@ -114,4 +114,7 @@ const PrimaryLayout = () => (
 ```
  - [ ] Only one of the routes in a given &lt;Switch&gt; will render. We still need exact on the HomePage route though if we’re going to list it first. Otherwise the home page route would match when visiting paths like `/users` or `/users/add`. 
  - [ ] Notice that we strategically place the routes for /users/add before /users to ensure the correct matching. Since the path /users/add would match for `/users` and `/users/add`, putting the /users/add first is best.
- -[ ] Sure, we could put them in any order if we use exact in certain ways, but at least we have options.
+ - [ ] Sure, we could put them in any order if we use exact in certain ways, but at least we have options.
+ ## API Concept V:
+### &lg;Redirect&gt;
+ - [ ] The &lg;Redirect&gt; component will always do a browser-redirect if encountered, but when it’s in a &lt;Switch&gt; statement, the redirect component only gets rendered if no other routes match first.
