@@ -65,7 +65,7 @@ render(<App />, document.getElementById('root'))
 ```
   - [ ] V3 routing rules were “exclusive” which meant that only one route would win. 
   - [ ] V4 routes are “inclusive” by default which means more than one &lt;Route&gt; can match and render at the same time.
-  -[ ] In the previous example, we’re trying to render either the HomePage or the UsersPage depending on the path. If the exact prop were removed from the example, both the HomePage and UsersPage components would have rendered at the same time when visiting `/users` in the browser.
+  - [ ] In the previous example, we’re trying to render either the HomePage or the UsersPage depending on the path. If the exact prop were removed from the example, both the HomePage and UsersPage components would have rendered at the same time when visiting `/users` in the browser.
 ### Code block for inclusive route
 ```
 const PrimaryLayout = () => (
@@ -81,4 +81,4 @@ const PrimaryLayout = () => (
   </div>
 )
 ```
--[ ] Now, when the user visits `/users`, both components will render. Something like this was doable in v3 with certain patterns, but it was more difficult. Thanks to v4’s inclusive routes, it’s now a breeze.
+- [ ] Now, when the user visits `/users`, both components will render. Something like this was doable in v3 with certain patterns, but it was more difficult. Thanks to v4’s inclusive routes, it’s now a breeze.
