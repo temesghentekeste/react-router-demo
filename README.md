@@ -116,5 +116,8 @@ const PrimaryLayout = () => (
  - [ ] Notice that we strategically place the routes for /users/add before /users to ensure the correct matching. Since the path /users/add would match for `/users` and `/users/add`, putting the /users/add first is best.
  - [ ] Sure, we could put them in any order if we use exact in certain ways, but at least we have options.
  ## API Concept V:
-### &lg;Redirect&gt;
- - [ ] The &lg;Redirect&gt; component will always do a browser-redirect if encountered, but when it’s in a &lt;Switch&gt; statement, the redirect component only gets rendered if no other routes match first.
+### &lt;Redirect&gt;
+ - [ ] The &lt;Redirect&gt; component will always do a browser-redirect if encountered, but when it’s in a &lt;Switch&gt; statement, the redirect component only gets rendered if no other routes match first.
+  ## API Concept VI:
+### “Index Routes” and “Not Found”
+ - [ ] While there is no more &lt;IndexRoute&gt; in v4, using &lt;Route exact&gt; achieves the same thing. Or if no routes resolved, then use &lt;Switch&gt; with &lt;Redirect&gt; to redirect to a default page with a valid path (as I did with HomePage in the example), or even a not-found page.
