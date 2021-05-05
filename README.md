@@ -320,3 +320,91 @@ function Topics () {
  )
 }
 ```
+
+- [ ] This is why understanding Route was so important. The mental model for Route is still the exact same, but for some reason your brain gets all worked up the first time you render a Route outside of the main App component.
+
+- [ ] Here’s a step by step step walk-through of what’s happening. When we go to /topics, the Topic component is rendered. Topics then renders a navbar and a new Route which will match for any of the Links in the navbar we just rendered (since the Links are linking to /topics/${id} and the Route is matching for /topics/:topicId). This means that if we click on any of the Links in the Topics component, the Topic component is going to be rendered.
+
+- [ ] It’s important to note that just because we matched another Route component, that doesn’t mean the previous Routes that matched aren’t still rendered. This is what confuses a lot of people. Remember, Route will always render something, either a component if the path matches or null. The same way you think of nesting normal components in React can apply directly to nesting Routes.
+
+- [ ] At this point, we’re progressing along nicely. What if, for some reason, another member of your team who wasn’t familiar with React Router decided to change /topics to /concepts? They’d probably head over to the main App component and change the Route
+
+- [ ] NBD, right? Well, now our routing is all broken. Inside of the Topics component, we’re assuming that the path begins with /topics but now it’s been changed to /concepts. Instead of hard coding the initial path, what we need is a way for the Topics component to get access to whatever the initial path is up to that point. That way, regardless of if someone changes the parent Route, it’ll always work.
+
+- [ ] Good news for us is React Router v5 comes with a custom Hook to give us access to this information called useRouteMatch. useRouteMatch returns an object which contains information about how the Route was matched. Specifically, it has two properties on it, path and url.
+
+- [ ] path - The path pattern used to match. Useful for building nested &lt;Route&gt;s
+
+- [ ] url - The matched portion of the URL. Useful for building nested &lt;Link&gt;s
+
+- [ ] The most important takeaway from those definitions is to use path for creating nested Routes and url for nested Link.
+
+- [ ] Assume we were using an app that had nested route’s and the current URL was /topics/react-router/url-parameters.
+
+- [ ] If we were to use useRouteMatch and log path and url in the most nested component, here’s what we would get.
+
+```
+const { path, url } = useRouteMatch()
+
+console.log(path) // /topics/:topicId/:subId
+console.log(url) // /topics/react-router/url-parameters
+
+return (
+  ...
+)
+```
+
+- [ ] Notice that path is including the URL parameters and url is just the full URL. This is why one is used for Links and the other used for Routes.
+
+- [ ] When you’re creating a nested Link, you don’t want to include the URL parameters. You want the user to literally go to /topics/react-router/url-parameters. That’s why url is better for nested Links. However, when you’re matching certain patterns with Route, you want to include the URL parameters - that’s why path is used for nested Routes.
+
+- [ ] Now let’s head back to our example. As of right now, we’re hard-coding /topics into our Route and Links.
+
+```
+function Topics () {
+  return (
+    <div>
+      <h1>Topics</h1>
+      <ul>
+        {topics.map(({ name, id }) => (
+          <li key={id}>
+            <Link to={`/topics/${id}`}>{name}</Link>
+          </li>
+        ))}
+      </ul>
+
+      <hr />
+
+      <Route path={`/topics/:topicId`}>
+        <Topic />
+      </Route>
+    </div>
+  )
+}
+```
+
+- [ ] As we just learned, we want our nested Route’s path to be dynamic instead of hard coded. To do this, we can replace the /topics portion of our Link with url and the /topics portion of our Route with path - both coming from useRouteMatch.
+```
+function Topics () {
+  const { url, path } = useRouteMatch()
+
+  return (
+    <div>
+      <h1>Topics</h1>
+      <ul>
+        {topics.map(({ name, id }) => (
+          <li key={id}>
+            <Link to={`${url}/${id}`}>{name}</Link>
+          </li>
+        ))}
+      </ul>
+
+      <hr />
+
+      <Route path={`${path}/:topicId`}>
+        <Topic />
+      </Route>
+    </div>
+  )
+}
+```
