@@ -5,7 +5,6 @@ import {
   Route, // for later
 } from 'react-router-dom';
 
-import { topics } from './data';
 import Home from './Home';
 import Topics from './Topics';
 

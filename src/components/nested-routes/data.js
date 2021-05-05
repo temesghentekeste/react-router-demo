@@ -1,4 +1,4 @@
-export default  [
+const topics = [
   {
     name: 'React Router',
     id: 'react-router',
@@ -65,3 +65,5 @@ export default  [
     ],
   },
 ];
+
+export default topics;
