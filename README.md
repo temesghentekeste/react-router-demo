@@ -186,3 +186,31 @@ const PrimaryLayout = () => (
   }
 ]
   ```
+
+- [ ] Before we start worrying about nested routes, let’s first create the skeleton of our app including the navbar which will allow us to navigate between Home (/) and Topics (/topics).
+
+```
+import * as React from 'react'
+import {
+  BrowserRouter as Router,
+  Link,
+  Route // for later
+} from 'react-router-dom'
+
+const topics = [
+  // ...
+]
+
+export default function App () {
+  return (
+      <Router>
+        <div style={{width: 1000, margin: '0 auto'}}>
+          <ul>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/topics'>Topics</Link></li>
+          </ul>
+        </div>
+      </Router>
+  )
+}
+```

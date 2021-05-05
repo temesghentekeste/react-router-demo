@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routes from './components/Routes';
+// import Routes from './components/Routes';
+import NestedRoutes from './components/nested-routes/';
 import reportWebVitals from './reportWebVitals';
 import './App.css';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
+    <NestedRoutes />
   </React.StrictMode>,
   document.getElementById('root')
 );
