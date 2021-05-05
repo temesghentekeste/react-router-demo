@@ -132,6 +132,7 @@ const PrimaryLayout = () => (
 ### “Index Routes” and “Not Found”
 
 - [ ] While there is no more &lt;IndexRoute&gt; in v4, using &lt;Route exact&gt; achieves the same thing. Or if no routes resolved, then use &lt;Switch&gt; with &lt;Redirect&gt; to redirect to a default page with a valid path (as I did with HomePage in the example), or even a not-found page.
+
 ## API Concept VII:
 
 ### Nested Routes using version 5 React Router
@@ -240,7 +241,9 @@ function Topics () {
   return <h1>TOPICS</h1>
 }
 ```
+
 - [ ] Now that we have our two top-level components, we need to create a Route for each of them. Home will be rendered when the user is at / and Topics will be rendered when the user is at /topics.
+
 ```
 export default function App () {
   return (
@@ -264,21 +267,56 @@ export default function App () {
   )
 }
 ```
- - [ ] When we’re at /, we’ll see the navbar and the Home component. When we’re at /topics, we’ll see the navbar and the Topics component.
- - [ ] When we go to /topics, the UI we get is another navbar which should include all of the topics. Let’s modify our Topics component to include this navbar. This time instead of hard-coding our Links, we’ll need to use our topics array to create a Link for each high-level topic.
- ```
- function Topics () {
-  return (
-    <div>
-      <h1>Topics</h1>
-      <ul>
-        {topics.map(({ name, id }) => (
-          <li key={id}>
-            <Link to={`/topics/${id}`}>{name}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
+
+- [ ] When we’re at /, we’ll see the navbar and the Home component. When we’re at /topics, we’ll see the navbar and the Topics component.
+- [ ] When we go to /topics, the UI we get is another navbar which should include all of the topics. Let’s modify our Topics component to include this navbar. This time instead of hard-coding our Links, we’ll need to use our topics array to create a Link for each high-level topic.
+
+```
+function Topics () {
+ return (
+   <div>
+     <h1>Topics</h1>
+     <ul>
+       {topics.map(({ name, id }) => (
+         <li key={id}>
+           <Link to={`/topics/${id}`}>{name}</Link>
+         </li>
+       ))}
+     </ul>
+   </div>
+ )
 }
- ```
+```
+
+- [ ] Now, when we go to /topics and the Topics component is rendered, we’ll get three Links - each linking to a different high-level topic.
+
+- [ ] Notice where we’re linking to, /topics/${id}. If we’re going to link someone to /topics/${id}, that means we need to render a Route which is going to match at that path. This is the first big concept of nested routes with React Router v5 - it doesn’t matter if you render a Route in your main component or in a child component, if the path matches the app’s location, the children element will be rendered.
+
+- [ ] With that in mind, let’s create a Route to match the Links we just created.
+
+```
+function Topic () {
+ return <div>TOPIC</div>
+}
+
+function Topics () {
+ return (
+   <div>
+     <h1>Topics</h1>
+     <ul>
+       {topics.map(({ name, id }) => (
+         <li key={id}>
+           <Link to={`/topics/${id}`}>{name}</Link>
+         </li>
+       ))}
+     </ul>
+
+     <hr />
+
+     <Route path={`/topics/:topicId`}>
+       <Topic />
+     </Route>
+   </div>
+ )
+}
+```

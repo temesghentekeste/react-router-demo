@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import topics from './data';
+import Topic from './Topic';
 
 const App =  () => {
   return (
@@ -12,6 +13,9 @@ const App =  () => {
           </li>
         ))}
       </ul>
+      <Route path={`/topics/:topicId`}>
+        <Topic />
+      </Route>
     </div>
   );
 };
