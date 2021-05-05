@@ -2,7 +2,7 @@ import { Route, Link, useRouteMatch } from 'react-router-dom';
 import topics from './data';
 import Topic from './Topic';
 
-const App =  () => {
+const Topics =  () => {
   const { url, path } = useRouteMatch();
   return (
     <div>
@@ -24,4 +24,4 @@ const App =  () => {
   );
 };
 
-export default App;
+export default Topics;

@@ -408,3 +408,6 @@ function Topics () {
   )
 }
 ```
+- [ ] At this point, our app is about halfway done. We still need to add a few more layers of nesting. Here’s the good news - there’s nothing more you’re going to learn in this tutorial. We’ll continue to create new nested navbars, continue to render Routes and we’ll continue to use useRouteMatch. If you’re comfortable at this point, the rest is gravy.
+
+- [ ] Now just as we initially did with the Topics component, we want to make it so Topic (no s) will also render a nested navbar and a Route. The only difference is now we’re one level deeper so we’ll map over the topic’s resources for our Links and our Route will match at /topics/:topicId/subId.
