@@ -446,8 +446,8 @@ function Topic () {
 ```
 
 ## Credits 👍 and Applause 👏 
-- <a href="https://css-tricks.com/react-router-4/" target="_blank">CSS-TRICKS</a>
-- <a href="https://ui.dev/react-router-v5-nested-routes/" target="_blank">U;</a>
-- <a href="https://www.microverse.org/" target="_blank">microverse.org</a>
-- <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a>
+✅  <a href="https://css-tricks.com/react-router-4/" target="_blank">CSS-TRICKS</a>
+✅  <a href="https://ui.dev/react-router-v5-nested-routes/" target="_blank">U;</a>
+✅ <a href="https://www.microverse.org/" target="_blank">microverse.org</a>
+✅ <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a>
 </a>
