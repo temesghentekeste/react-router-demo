@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import Routes from './components/Routes';
-import NestedRoutes from './components/nested-routes/';
+import NestedRoutes from './components/nested-routes/App';
 import reportWebVitals from './reportWebVitals';
 import './App.css';
 

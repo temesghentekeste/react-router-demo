@@ -5,9 +5,11 @@ import {
   Route, // for later
 } from 'react-router-dom';
 
-import { topics } from './data'
+import { topics } from './data';
+import Home from './Home';
+import Topics from './Topics';
 
-export default function NestedRoutes() {
+export default function App() {
   return (
     <Router>
       <div style={{ width: 1000, margin: '0 auto' }}>
@@ -19,6 +21,15 @@ export default function NestedRoutes() {
             <Link to="/topics">Topics</Link>
           </li>
         </ul>
+
+        <hr />
+
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/topics">
+          <Topics />
+        </Route>
       </div>
     </Router>
   );
