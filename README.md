@@ -135,7 +135,7 @@ const PrimaryLayout = () => (
 
 ## API Concept VII:
 
-### Nested Routes using version 5 React Router
+### Nested Routes using React Router version 5 
 
 - [ ] To demonstrate the concept of nested routes our example demo has a list of topics, those topics have resources, and those resources have a URL.
 - [ ] Our data structure is:
@@ -444,3 +444,10 @@ function Topic () {
   )
 }
 ```
+
+## Credits 👍 and Applause 👏 
+- <a href="https://css-tricks.com/react-router-4/" target="_blank">CSS-TRICKS</a>
+- <a href="https://ui.dev/react-router-v5-nested-routes/" target="_blank">U;</a>
+- <a href="https://www.microverse.org/" target="_blank">microverse.org</a>
+- <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a>
+</a>
